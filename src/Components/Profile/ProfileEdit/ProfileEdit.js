@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BiArrowBack as Back } from "react-icons/bi";
 import styles from "./ProfileEdit.module.css";
 import InputBox from "../../../Reusables/InputBox/InputBox";
 import Buttons from "../../../Reusables/Buttons";

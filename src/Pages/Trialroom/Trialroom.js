@@ -4,9 +4,10 @@ import { AiFillCaretDown } from "react-icons/ai";
 import NavBar from "../../Reusables/NavBar/NavBar";
 import Footer from "../../Reusables/Footer/Footer";
 import { imagepaths } from "./imagepaths";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import Loader from "../../Reusables/Loader";
+
 const Wrapper = styled.div`
   height: 600px;
   width: 85%;
@@ -104,10 +105,7 @@ const ButtonsWrapper = styled.div`
   justify-content: space-between;
 `;
 const Trialroom = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.loggedUser);
-  const qty = 1;
   const { products } = useSelector((state) => state.totalProducts);
   const [opendressdrop, setOpendressdrop] = useState(false);
   const [openmodeldrop, setOpenmodeldrop] = useState(false);
@@ -119,6 +117,7 @@ const Trialroom = () => {
   const [currentproduct, setCurrentproduct] = useState(null);
   const [loading, setLoading] = useState();
   const tryonRef = useRef();
+
   const tryonFunc = () => {
     if (dressimage.includes("dress1") && modelimage.includes("model1")) {
       setResultimage(imagepaths[2].results.result1);
@@ -151,6 +150,7 @@ const Trialroom = () => {
       setResultimage(imagepaths[2].results.result10);
     }
   };
+
   tryonRef.current = tryonFunc;
   const clickHandler = () => {
     tryonRef.current();
@@ -160,7 +160,8 @@ const Trialroom = () => {
       const product = products.find((item) => item.image === dressimage);
       setCurrentproduct(product);
     }
-  }, [dressimage]);
+  }, [dressimage, products]);
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -171,6 +172,7 @@ const Trialroom = () => {
   const navigatehandler = () => {
     navigate(`/singleproduct/${currentproduct._id}`);
   };
+
   return (
     <>
       <NavBar />

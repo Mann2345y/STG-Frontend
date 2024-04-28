@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { FiTrash } from "react-icons/fi";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-import Loader from "../../../Reusables/Loader";
 import Message from "../../../Reusables/Message";
 import {
   addCartItem,
@@ -45,7 +44,9 @@ const CartItems = () => {
     dispatch(removeCartItem(userId, productId));
   };
   const addQuantityHandler = (userId, productId, currqty) => {
-    const product = allproducts.find((item) => item._id == productId);
+    const product = allproducts.find(
+      (item) => item._id?.toString() === productId?.toString()
+    );
     if (product.countInStock > currqty) {
       currqty++;
     }
@@ -67,7 +68,7 @@ const CartItems = () => {
       );
     }
     setWidth(window.innerWidth);
-  }, [cartItems, window.innerWidth]);
+  }, [cartItems]);
   return (
     <div className={styles.wrapper}>
       {error ? (

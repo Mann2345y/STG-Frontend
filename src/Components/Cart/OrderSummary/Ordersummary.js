@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Ordersummary.module.css";
 import Buttons from "../../../Reusables/Buttons";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  emptyCart,
-  placeOrder,
-  removeCartItem,
-} from "../../../Redux/actions/cartActions";
-import { FiTrash } from "react-icons/fi";
+import { emptyCart, placeOrder } from "../../../Redux/actions/cartActions";
 import Loader from "../../../Reusables/Loader";
 import Message from "../../../Reusables/Message";
 import OrderPlaced from "../OrderPlaced/OrderPlaced";
@@ -15,22 +10,30 @@ import OrderPlaced from "../OrderPlaced/OrderPlaced";
 const Ordersummary = ({ ItemsAddressHandler, setPlacedMobile }) => {
   const dispatch = useDispatch();
   const [placed, setPlaced] = useState(false);
-  let totalItems = 0,
-    amount = 0;
+  const [totalItems, setTotalItems] = useState(0);
+  const [amount, setAmount] = useState(0);
+
   const user = JSON.parse(localStorage.getItem("loggedUser"));
   const { loading, error, cartItems, address } = useSelector(
     (state) => state.cart
   );
   const { addresses } = useSelector((state) => state.addresses);
-  const removeHandler = (userId, productId) => {
-    dispatch(removeCartItem(userId, productId));
-  };
-  if (cartItems) {
-    cartItems.forEach((item) => {
-      totalItems += item.quantity;
-      amount += item.amount;
-    });
-  }
+
+  useEffect(() => {
+    if (cartItems) {
+      let totalItems = 0;
+      let amount = 0;
+
+      cartItems.forEach((item) => {
+        totalItems += item.quantity;
+        amount += item.amount;
+      });
+
+      setTotalItems(totalItems);
+      setAmount(amount);
+    }
+  }, [cartItems]);
+
   return (
     <div className={styles.wrapper}>
       {loading ? (

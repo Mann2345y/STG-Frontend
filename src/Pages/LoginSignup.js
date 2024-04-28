@@ -7,7 +7,6 @@ import Footer from "../Reusables/Footer/Footer";
 import { AnimatePresence, motion } from "framer-motion";
 import Login from "../Components/LoginSignup/Login/Login";
 import SignUp from "../Components/LoginSignup/Signup/Signup";
-import { useSelector } from "react-redux";
 
 const Wrapper = styled(motion.div)`
   height: 600px;

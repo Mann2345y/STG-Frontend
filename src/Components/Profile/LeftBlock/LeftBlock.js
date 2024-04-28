@@ -4,7 +4,6 @@ import {
   AiOutlineUser as User,
   AiOutlineShoppingCart as Cart,
 } from "react-icons/ai";
-import { motion } from "framer-motion";
 import { BsSuitHeartFill as Wishlist } from "react-icons/bs";
 import { FaAddressCard as Address } from "react-icons/fa";
 import { FiLogOut as Logout } from "react-icons/fi";

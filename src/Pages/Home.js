@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NavBar from "../Reusables/NavBar/NavBar";
 import Banner from "../Components/Home/Banner/Banner";
 import ProductSlider from "../Components/Home/ProductSlider/ProductSlider";

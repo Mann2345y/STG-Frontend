@@ -47,8 +47,7 @@ const AddressForm = ({ item, setToggleEdit }) => {
       setState("");
       setPincode("");
     }
-    console.log(item);
-  }, []);
+  }, [item]);
 
   return (
     <>

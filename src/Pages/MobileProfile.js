@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import NavBar from "../Reusables/NavBar/NavBar";
-import Footer from "../Reusables/Footer/Footer";
 import { motion } from "framer-motion";
 import Container from "../Reusables/Container";
 import ProfileEdit from "../Components/Profile/ProfileEdit/ProfileEdit";

@@ -4,7 +4,7 @@ import Buttons from "../../../Reusables/Buttons";
 import InputBox from "../../../Reusables/InputBox/InputBox";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { createUser, loginUser } from "../../../Redux/actions/userActions";
+import { createUser } from "../../../Redux/actions/userActions";
 
 const Signup = ({ open }) => {
   const [name, setName] = useState("");

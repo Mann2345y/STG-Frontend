@@ -6,7 +6,6 @@ import { BsFillBookmarkPlusFill as Add } from "react-icons/bs";
 import { IoTrashBinOutline as Trash } from "react-icons/io5";
 import { AiOutlineEdit as Edit, AiOutlineCheck as Check } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import Loader from "../../../Reusables/Loader";
 import Message from "../../../Reusables/Message";
 import { useState } from "react";
 import { removeAddress } from "../../../Redux/actions/addressActions";
